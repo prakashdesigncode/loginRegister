@@ -354,8 +354,9 @@ server.get("/submittedStatus", async (req, res) => {
   try {
     const questions = await Questions.find({});
     const withoutAnswer = questions.filter(
-      (element) => typeof element["userAnswer"] === Number
+      (element) => element["userAnswer"] || element["userAnswer"] === 0
     );
+    console.log(withoutAnswer.length, questions.length);
     if (withoutAnswer.length === questions.length) {
       res.status(200).json({
         data: true,
