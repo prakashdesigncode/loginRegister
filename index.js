@@ -7,7 +7,7 @@ const Questions = require("./Models/questionModel");
 dotEnv.config({ path: "./.env" });
 const PORT = process.env.PORT || 5000;
 server.use(express.json());
-server.use(cors({ origin: "http://localhost:3000" }));
+server.use(cors({ origin: "*" }));
 mongoose
   .connect(
     "mongodb+srv://prakash:TA0alWy2gV550ExP@cluster0.gc3ko.mongodb.net/write-exam"
