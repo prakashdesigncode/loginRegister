@@ -354,15 +354,19 @@ server.get("/submittedStatus", async (req, res) => {
   try {
     const questions = await Questions.find({});
     const withoutAnswer = questions.filter(
-      (element) => !element.hasOwnProperty("userAnswer")
+      (element) => typeof element["userAnswer"] === Number
     );
-    if (withoutAnswer.length === 0) {
-      res.status(200).json({ data: true });
+    if (withoutAnswer.length === questions.length) {
+      res.status(200).json({
+        data: true,
+      });
     } else {
-      res.status(200).json({ data: false });
+      res.status(200).json({
+        data: false,
+      });
     }
   } catch (error) {
-    res.status(500).json({ message: error });
+    res.status(500).json({ message: "hai" });
   }
 });
 
