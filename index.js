@@ -10,308 +10,175 @@ server.use(express.json());
 server.use(cors({ origin: "*" }));
 mongoose
   .connect(
-    "mongodb+srv://prakash:TA0alWy2gV550ExP@cluster0.gc3ko.mongodb.net/write-exam"
+    "mongodb+srv://prakash:TA0alWy2gV550ExP@cluster0.gc3ko.mongodb.net/write-exam2"
   )
   .then(() => console.log("db connected"));
 const questions = [
   {
-    question: "What is a callback function in JavaScript?",
+    question: "What is Node.js?",
     options: [
-      "A function called immediately after another function",
-      "A function passed as an argument to another function",
-      "A function that is called only once",
-      "A function that cannot accept arguments",
+      "A front-end JavaScript framework",
+      "An open-source JavaScript platform for server-side programming",
+      "A multi-threaded server-side platform",
+      "A database management system",
     ],
     answer: 1,
   },
   {
-    question:
-      "Which of the following is true about JavaScript's execution order?",
-    options: [
-      "Functions are executed in the order they are defined",
-      "Functions are executed in the order they are called",
-      "Functions are executed at random",
-      "Functions are executed in reverse order",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Which symbol is used to concatenate strings in JavaScript?",
-    options: ["&", "+", "-", "*"],
-    answer: 1,
-  },
-  {
-    question:
-      "Which of the following is the correct way to pass a function as an argument?",
-    options: [
-      "callback()",
-      "callback",
-      "function(callback())",
-      "function(callback)",
-    ],
-    answer: 3,
-  },
-  {
-    question: "In JavaScript, what is a method?",
-    options: [
-      "A property of an object",
-      "A type of object",
-      "A function inside an object",
-      "A variable inside a class",
-    ],
+    question: "Which engine powers Node.js?",
+    options: ["SpiderMonkey", "JavaScriptCore", "V8", "Nashorn"],
     answer: 2,
   },
   {
-    question:
-      "Which of the following best describes JavaScript's object-oriented nature?",
-    options: [
-      "It is class-based",
-      "It is prototype-based",
-      "It does not support OOP",
-      "It only supports primitive types",
-    ],
+    question: "Who created Node.js?",
+    options: ["Brendan Eich", "Ryan Dahl", "James Gosling", "Guido van Rossum"],
     answer: 1,
   },
   {
-    question: "What is a constructor function in JavaScript?",
-    options: [
-      "A function that initializes an object",
-      "A function that executes without a return value",
-      "A function used for mathematical calculations",
-      "A function that is called in the global scope",
-    ],
-    answer: 0,
+    question: "When was Node.js created?",
+    options: ["2008", "2009", "2010", "2011"],
+    answer: 1,
   },
   {
-    question:
-      "Which of the following is used to create an object in JavaScript?",
+    question: "What kind of architecture does Node.js follow?",
     options: [
-      "{} Object literal",
-      "[] Array literal",
-      "function() constructor",
-      "All of the above",
-    ],
-    answer: 3,
-  },
-  {
-    question: "Which is a correct way to define an object in JavaScript?",
-    options: [
-      "var obj = {a1: 1, a2: 2};",
-      "var obj = new Object(a1: 1, a2: 2);",
-      "var obj = (a1, a2) => {a1: 1, a2: 2};",
+      "Multi-threaded",
+      "Event-driven",
+      "Synchronous",
       "None of the above",
     ],
-    answer: 0,
+    answer: 1,
   },
   {
-    question: "What does 'this' refer to in JavaScript?",
+    question: "What problem does Node.js solve?",
     options: [
-      "The global object",
-      "The function calling the method",
-      "The object calling the method",
-      "None of the above",
+      "Slow database access",
+      "Synchronous I/O blocking",
+      "Difficulties in styling UI components",
+      "Dependency injection issues",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is the role of the Event Loop in Node.js?",
+    options: [
+      "Processes blocking operations synchronously",
+      "Compiles JavaScript into bytecode",
+      "Handles incoming events and delegates them",
+      "Manages connections with databases",
     ],
     answer: 2,
   },
   {
-    question:
-      "How do you create an instance of a constructor function in JavaScript?",
+    question: "What is the purpose of the Thread Pool in Node.js?",
     options: [
-      "new Constructor()",
-      "Constructor()",
-      "Constructor[]",
-      "new Constructor{}",
+      "Executes non-blocking I/O operations",
+      "Processes blocking operations in the background",
+      "Handles synchronous requests",
+      "Compiles JavaScript into machine code",
     ],
-    answer: 0,
+    answer: 1,
   },
   {
-    question:
-      "Which of the following methods can be used to concatenate strings in JavaScript?",
+    question: "What is libuv in Node.js?",
     options: [
-      "string.concat()",
-      "string.add()",
-      "string.join()",
-      "string.merge()",
+      "A package management tool",
+      "A JavaScript engine",
+      "A library for asynchronous I/O",
+      "A front-end framework",
     ],
-    answer: 0,
+    answer: 2,
   },
   {
-    question: "In JavaScript, what is inheritance?",
+    question: "What is Node Package Manager (NPM)?",
     options: [
-      "A way to reuse code through objects",
-      "A way to hide code details",
-      "A process of copying objects",
-      "A way to create new functions",
+      "A file upload manager",
+      "A package library for Node.js applications",
+      "A threading tool",
+      "An event handler",
     ],
-    answer: 0,
+    answer: 1,
   },
   {
-    question:
-      "Which of the following is an example of a falsy value in JavaScript?",
-    options: ["0", "NaN", "undefined", "All of the above"],
+    question: "What does non-blocking I/O mean?",
+    options: [
+      "Operations are processed in a queue synchronously",
+      "Input and output are handled asynchronously",
+      "Data buffers are used for better performance",
+      "Threads are used to handle operations",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is the primary programming language used for Node.js?",
+    options: ["Python", "JavaScript", "C++", "Ruby"],
+    answer: 1,
+  },
+  {
+    question: "Which companies use Node.js?",
+    options: ["Netflix", "Uber", "PayPal", "All of the above"],
     answer: 3,
   },
   {
-    question:
-      "Which of the following is used to add a new property to an object in JavaScript?",
+    question: "Why is Node.js considered scalable?",
     options: [
-      "object.addProperty()",
-      "object['newProperty'] = value;",
-      "object.property = value;",
-      "Both b and c",
+      "It uses multiple threads for all operations",
+      "It handles requests asynchronously with low resource usage",
+      "It buffers all data to improve performance",
+      "It can only handle one client at a time",
     ],
-    answer: 3,
+    answer: 1,
   },
   {
-    question: "What does 'undefined' represent in JavaScript?",
+    question: "What does the Event Queue do in Node.js?",
     options: [
-      "A variable that has been explicitly set to no value",
-      "A variable that does not exist",
-      "A variable that has been declared but not initialized",
-      "A variable with a value of null",
+      "Executes blocking operations",
+      "Queues incoming events for the Event Loop",
+      "Stores JavaScript code",
+      "Handles synchronous tasks",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which feature of Node.js allows it to avoid buffering?",
+    options: [
+      "Single-threaded architecture",
+      "Event-driven architecture",
+      "Chunk-based data output",
+      "Thread Pool",
     ],
     answer: 2,
   },
   {
-    question: "What is the value of 'typeof null' in JavaScript?",
-    options: ["'null'", "'object'", "'undefined'", "'string'"],
-    answer: 1,
-  },
-  {
-    question: "What is 'NaN' in JavaScript?",
-    options: ["Not a Name", "Not a Number", "Null and None", "Not an Object"],
-    answer: 1,
-  },
-  {
-    question: "How do you define a class in JavaScript ES6?",
-    options: [
-      "class ClassName {}",
-      "function ClassName {}",
-      "var ClassName = {}",
-      "object ClassName {}",
-    ],
-    answer: 0,
-  },
-  {
-    question: "What does the 'Array.prototype.push()' method do?",
-    options: [
-      "Adds one or more elements to the end of an array",
-      "Removes the first element from an array",
-      "Reverses the order of elements in an array",
-      "Sorts the elements of an array",
-    ],
-    answer: 0,
-  },
-  {
     question:
-      "Which method is used to find the index of a specific element in an array?",
-    options: ["indexOf()", "findIndex()", "searchIndex()", "getIndex()"],
-    answer: 0,
-  },
-  {
-    question:
-      "What is the default value of a variable declared without initialization in JavaScript?",
-    options: ["null", "undefined", "0", "false"],
-    answer: 1,
-  },
-  {
-    question: "What is the output of 'console.log(2 + '2')' in JavaScript?",
-    options: ["'22'", "4", "Error", "NaN"],
-    answer: 0,
-  },
-  {
-    question:
-      "Which of the following statements about JavaScript objects is true?",
-    options: [
-      "Objects can hold multiple properties",
-      "Objects can hold multiple methods",
-      "Objects can hold both properties and methods",
-      "All of the above",
-    ],
-    answer: 3,
-  },
-  {
-    question: "What does the 'call' method do in JavaScript?",
-    options: [
-      "Invokes a method with a specific 'this' value",
-      "Creates a copy of an object",
-      "Creates a function constructor",
-      "None of the above",
-    ],
-    answer: 0,
-  },
-  {
-    question: "What is the purpose of the 'bind' method in JavaScript?",
-    options: [
-      "It permanently binds a function to a specific object",
-      "It binds a function to the window object",
-      "It is used to create an alias for a function",
-      "It is used to call a function immediately",
-    ],
-    answer: 0,
-  },
-  {
-    question: "What does the 'split' method do in JavaScript?",
-    options: [
-      "Joins multiple strings together",
-      "Splits a string into an array of substrings",
-      "Replaces characters in a string",
-      "Converts a string into a number",
-    ],
+      "Which library powers the multi-threaded capabilities of Node.js?",
+    options: ["Express.js", "libuv", "Socket.io", "NPM"],
     answer: 1,
   },
   {
     question:
-      "Which of the following is used to convert a string into an integer in JavaScript?",
-    options: ["parseInt()", "parseFloat()", "Number()", "All of the above"],
-    answer: 0,
-  },
-  {
-    question:
-      "Which method would you use to check if an object is an array in JavaScript?",
+      "What does the term 'lightweight' mean in the context of Node.js?",
     options: [
-      "Array.isArray()",
-      "isArray()",
-      "Object.isArray()",
-      "ArrayType()",
+      "It uses minimal JavaScript",
+      "It consumes low memory and resources",
+      "It can only handle small applications",
+      "It runs on lightweight hardware",
     ],
-    answer: 0,
+    answer: 1,
   },
   {
-    question:
-      "Which keyword is used to define a constant variable in JavaScript?",
-    options: ["let", "var", "const", "final"],
+    question: "How does Node.js improve performance in web applications?",
+    options: [
+      "By using synchronous operations",
+      "By blocking all inputs and outputs",
+      "By handling multiple requests concurrently",
+      "By requiring more hardware",
+    ],
     answer: 2,
   },
   {
-    question: "Which of the following is a primitive data type in JavaScript?",
-    options: ["Object", "Array", "String", "Function"],
-    answer: 2,
-  },
-  {
-    question: "Which operator is used to check strict equality in JavaScript?",
-    options: ["==", "===", "=", "!="],
-    answer: 1,
-  },
-  {
-    question: "What does the 'delete' operator do in JavaScript?",
-    options: [
-      "Removes a property from an object",
-      "Removes a variable",
-      "Deletes an entire object",
-      "None of the above",
-    ],
-    answer: 0,
-  },
-  {
-    question:
-      "What is the result of 'console.log(10 == \"10\")' in JavaScript?",
-    options: ["true", "false", "Error", "NaN"],
-    answer: 0,
-  },
-  {
-    question: "What does 'console.log(1 + 2 + \"3\")' output in JavaScript?",
-    options: ["123", "33", "6", "NaN"],
+    question: "What is the core language of the libuv library?",
+    options: ["Python", "C++", "JavaScript", "Java"],
     answer: 1,
   },
 ];
